@@ -107,8 +107,9 @@ export default function Hero() {
                   className="w-full h-14 bg-gradient-to-r from-brand/90 to-blue-600/90 rounded-xl shadow-[0_10px_30px_rgba(59,130,246,0.3)] relative overflow-hidden flex items-center px-4 gap-4 border border-white/10"
                 >
                    <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-20 mix-blend-overlay"></div>
-                   <Layout size={20} className="text-white drop-shadow-md" />
-                   <div className="w-2/3 h-3 bg-white/30 rounded-full backdrop-blur-sm shadow-inner"></div>
+                   <Layout size={20} className="text-white drop-shadow-md relative z-10" />
+                   <div className="text-xs font-bold text-white tracking-widest drop-shadow-md relative z-10 flex-1">UI STRUCTURE</div>
+                   <div className="w-16 h-2 bg-white/30 rounded-full backdrop-blur-sm shadow-inner relative z-10"></div>
                 </motion.div>
 
                 <div className="flex gap-4 h-32">
@@ -120,7 +121,8 @@ export default function Hero() {
                     className="w-[40%] bg-zinc-900/90 backdrop-blur-md rounded-xl border border-white/5 shadow-inner flex flex-col items-center justify-center p-4 gap-3 relative overflow-hidden group-hover:border-purple-500/30 transition-colors"
                   >
                     <div className="absolute -right-4 -top-4 w-20 h-20 bg-purple-500/20 blur-2xl rounded-full"></div>
-                    <Palette size={28} className="text-purple-400 drop-shadow-[0_0_15px_rgba(168,85,247,0.5)]" />
+                    <Palette size={24} className="text-purple-400 drop-shadow-[0_0_15px_rgba(168,85,247,0.5)]" />
+                    <div className="text-[9px] font-bold tracking-widest text-zinc-300 relative z-10">STYLESHEET</div>
                     <div className="w-full space-y-2 relative z-10">
                       <div className="h-2 bg-zinc-800 rounded-full overflow-hidden shadow-inner">
                         <motion.div initial={{ width: 0 }} animate={{ width: "100%" }} transition={{ duration: 1.5, delay: 0.8 }} className="h-full bg-gradient-to-r from-pink-500 to-purple-500"></motion.div>
@@ -138,13 +140,18 @@ export default function Hero() {
                     transition={{ duration: 0.6, delay: 0.7 }}
                     className="flex-1 rounded-xl border border-zinc-800/80 bg-black/80 backdrop-blur-xl p-4 relative overflow-hidden font-mono text-[10px] sm:text-xs text-zinc-500 flex flex-col justify-center shadow-xl group-hover:border-blue-500/30 transition-colors"
                   >
-                    <Terminal size={16} className="text-zinc-600 absolute top-3 right-3" />
-                    <motion.div className="w-[1px] h-3 bg-brand absolute left-4 animate-pulse"></motion.div>
-                    <motion.div initial={{ width: 0 }} animate={{ width: "100%" }} transition={{ duration: 2, repeat: Infinity, repeatType: "reverse" }} className="text-blue-400 mb-1 whitespace-nowrap overflow-hidden pl-3">{'<section id="hero">'}</motion.div>
-                    <motion.div initial={{ width: 0 }} animate={{ width: "80%" }} transition={{ duration: 1.5, delay: 0.3, repeat: Infinity, repeatType: "reverse" }} className="text-emerald-400 ml-6 mb-1 whitespace-nowrap overflow-hidden">{'<h1 className="title">'}</motion.div>
-                    <motion.div initial={{ width: 0 }} animate={{ width: "90%" }} transition={{ duration: 1.8, delay: 0.6, repeat: Infinity, repeatType: "reverse" }} className="text-amber-300 ml-10 mb-1 whitespace-nowrap overflow-hidden">{'Build Dream Website'}</motion.div>
-                    <motion.div initial={{ width: 0 }} animate={{ width: "80%" }} transition={{ duration: 1.5, delay: 0.3, repeat: Infinity, repeatType: "reverse" }} className="text-emerald-400 ml-6 mb-1 whitespace-nowrap overflow-hidden">{'</h1>'}</motion.div>
-                    <motion.div initial={{ width: 0 }} animate={{ width: "100%" }} transition={{ duration: 2, repeat: Infinity, repeatType: "reverse" }} className="text-blue-400 whitespace-nowrap overflow-hidden pl-3">{'</section>'}</motion.div>
+                    <div className="flex justify-between items-center mb-2 pb-2 border-b border-zinc-800 absolute top-0 left-0 w-full px-4 pt-3">
+                      <span className="text-[9px] font-bold text-zinc-400 tracking-wider">APP.TSX</span>
+                      <Terminal size={12} className="text-zinc-600" />
+                    </div>
+                    <div className="pt-6">
+                      <motion.div className="w-[1px] h-3 bg-brand absolute left-4 animate-pulse"></motion.div>
+                      <motion.div initial={{ width: 0 }} animate={{ width: "100%" }} transition={{ duration: 2, repeat: Infinity, repeatType: "reverse" }} className="text-blue-400 mb-1 whitespace-nowrap overflow-hidden pl-3">{'<section id="hero">'}</motion.div>
+                      <motion.div initial={{ width: 0 }} animate={{ width: "80%" }} transition={{ duration: 1.5, delay: 0.3, repeat: Infinity, repeatType: "reverse" }} className="text-emerald-400 ml-6 mb-1 whitespace-nowrap overflow-hidden">{'<h1 className="title">'}</motion.div>
+                      <motion.div initial={{ width: 0 }} animate={{ width: "90%" }} transition={{ duration: 1.8, delay: 0.6, repeat: Infinity, repeatType: "reverse" }} className="text-amber-300 ml-10 mb-1 whitespace-nowrap overflow-hidden">{'Build Dream Website'}</motion.div>
+                      <motion.div initial={{ width: 0 }} animate={{ width: "80%" }} transition={{ duration: 1.5, delay: 0.3, repeat: Infinity, repeatType: "reverse" }} className="text-emerald-400 ml-6 mb-1 whitespace-nowrap overflow-hidden">{'</h1>'}</motion.div>
+                      <motion.div initial={{ width: 0 }} animate={{ width: "100%" }} transition={{ duration: 2, repeat: Infinity, repeatType: "reverse" }} className="text-blue-400 whitespace-nowrap overflow-hidden pl-3">{'</section>'}</motion.div>
+                    </div>
                   </motion.div>
                 </div>
 
@@ -160,14 +167,15 @@ export default function Hero() {
                         <motion.div animate={{ opacity: [0.3, 1, 0.3] }} transition={{ duration: 2, repeat: Infinity }} className="absolute inset-0 bg-brand/20 blur-md rounded-xl"></motion.div>
                         <Zap size={22} className="text-brand relative z-10"/>
                       </div>
-                      <div className="space-y-2">
-                        <div className="h-3 w-28 bg-zinc-700 rounded-full relative overflow-hidden">
-                           <motion.div initial={{ x: "-100%" }} animate={{ x: "100%" }} transition={{ duration: 1.5, repeat: Infinity, ease: "linear" }} className="absolute inset-0 bg-white/10"></motion.div>
+                      <div className="space-y-1 relative z-10">
+                        <div className="text-[10px] font-bold tracking-widest text-white">OPTIMIZING CORE</div>
+                        <div className="text-[9px] text-zinc-400">Minifying javascript & css...</div>
+                        <div className="h-1 w-28 bg-zinc-700/50 rounded-full relative overflow-hidden mt-1">
+                           <motion.div initial={{ x: "-100%" }} animate={{ x: "100%" }} transition={{ duration: 1.5, repeat: Infinity, ease: "linear" }} className="absolute inset-y-0 w-1/2 bg-brand/50 blur-[2px]"></motion.div>
                         </div>
-                        <div className="h-2 w-16 bg-zinc-800 rounded-full"></div>
                       </div>
                     </div>
-                    <motion.div animate={{ rotate: 360 }} transition={{ duration: 6, repeat: Infinity, ease: "linear" }}>
+                    <motion.div animate={{ rotate: 360 }} transition={{ duration: 6, repeat: Infinity, ease: "linear" }} className="relative z-10">
                         <Settings size={28} className="text-zinc-500 drop-shadow-md" />
                     </motion.div>
                 </motion.div>

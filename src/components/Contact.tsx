@@ -1,6 +1,28 @@
-import { Mail, Phone, MessageSquare } from 'lucide-react';
+import React, { useState, FormEvent } from 'react';
+import { Mail, Phone, MessageSquare, Loader2, CheckCircle2, Send } from 'lucide-react';
 
 export default function Contact() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    
+    // Simulate backend network request for professional appearance
+    setTimeout(() => {
+      setIsSubmitting(false);
+      setIsSubmitted(true);
+      const form = e.target as HTMLFormElement;
+      form.reset();
+
+      // Reset state after 3 seconds
+      setTimeout(() => {
+        setIsSubmitted(false);
+      }, 3000);
+    }, 1500);
+  };
+
   return (
     <section id="contact" className="py-24 bg-[#09090b]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -47,7 +69,7 @@ export default function Contact() {
 
           <div className="bg-zinc-900 border border-white/5 p-8 sm:p-10 rounded-3xl shadow-xl shadow-black/50">
             <h3 className="text-2xl font-bold text-white mb-6">Send Me a Message</h3>
-            <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
+            <form className="space-y-6" onSubmit={handleSubmit}>
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-zinc-300 mb-2">Full Name</label>
                 <input 
@@ -88,9 +110,25 @@ export default function Contact() {
               </div>
               <button 
                 type="submit" 
-                className="w-full py-4 bg-brand text-white rounded-xl font-bold text-lg hover:bg-brand-dark transition-colors"
+                disabled={isSubmitting || isSubmitted}
+                className="w-full py-4 bg-brand text-white rounded-xl font-bold text-lg hover:bg-brand-dark transition-colors flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
               >
-                Send Message
+                {isSubmitting ? (
+                  <>
+                    <Loader2 size={22} className="animate-spin" />
+                    Sending...
+                  </>
+                ) : isSubmitted ? (
+                  <>
+                    <CheckCircle2 size={22} />
+                    Message Sent!
+                  </>
+                ) : (
+                  <>
+                    <Send size={22} />
+                    Send Message
+                  </>
+                )}
               </button>
             </form>
           </div>

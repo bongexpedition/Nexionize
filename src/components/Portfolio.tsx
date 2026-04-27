@@ -20,7 +20,7 @@ const projects = [
   {
     title: "E-Commerce App Interface",
     category: "Web Application",
-    image: "https://images.unsplash.com/photo-1522542550221-31fd19575a2d?auto=format&fit=crop&w=800&q=80"
+    image: "https://images.unsplash.com/photo-1512428559087-560fa5ceab42?auto=format&fit=crop&w=800&q=80"
   }
 ];
 
